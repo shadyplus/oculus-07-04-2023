@@ -1,0 +1,333 @@
+$(document).ready(function() {
+    var e = !0;
+    $(window).mouseout(function(t) {
+        t.pageY - $(window).scrollTop() < 1 && 1 == e && ($(".demon_popup").fadeIn(300), e = !1)
+    }), $(".demon_close, .popup_btn").click(function() {
+        $(".demon_popup").fadeOut(300)
+    }), $(".demon_overflow").on("click", function() {
+        $(".demon_popup").css("display", "none")
+    }), $(".demon_popup").click(function(t) {
+        t.stopPropagation()
+    })
+});
+
+window.onload = function() {
+    var userCity = $(".user-city");
+
+    function checkCity(city) {
+        if (!city) {
+            return 'Москва'
+        }
+        return city;
+    }
+    if (window.ymaps && window.ymaps.geolocation.city) {
+        userCity.text(checkCity(ymaps.geolocation.city));
+    } else {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://click.lucky.online/click/ip-location.html', false);
+        xhr.send();
+        if (xhr.status != 200) {
+            userCity.text(checkCity(null));
+        } else {
+            var response = JSON.parse(xhr.responseText);
+            userCity.text(checkCity(response.city));
+        }
+    }
+};
+
+$(function() {
+    var e = new XMLHttpRequest;
+    if (e.open("GET", "https://click.lucky.online/click/ip-location.html", !1), e.send(), 200 === e.status) {
+        var t = JSON.parse(e.responseText);
+        ! function(t, r) {
+            $(".country").text(t), document.getElementsByTagName("body")[0], n(r)
+        }(t.country, t.code)
+    }
+
+    function n(e) {
+        var t, n = 0;
+        $("select").change(function() {
+            0 == n && (n = 1, $(this.children).each(function() {
+                    this.selected && (sel = $(this).val())
+                }), "undefined" == typeof sel && (sel = "RU"),
+                "RU" == sel &&
+                ($(".country_name1").text("России"),
+
+                    $(".news2Name").text("Зинаида Герасимова"),
+                    $('.news1').attr('src', 'img/ru/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/ru/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Константин Марков"),
+
+                    $(".name01").text("Алексей Дегтярев"),
+                    $(".name02").text("Иван Пантелеев"),
+                    $(".name03").text("Людмила Коваленко"),
+                    $(".name04").text("Анна Яшина"),
+
+                    $(".name1").text("Мария Савичева"),
+                    $(".name2").text("Нина Кузьмина"),
+                    $(".name3").text("Кирилл Чернов"),
+                    $(".name4").text("Евгений Гордеев"),
+                    $(".name5").text("Елена Дмитриева"),
+                    $(".name6").text("Марина Анисимова"),
+                    $(".name7").text("Ирина Матвеева"),
+                    $(".name8").text("Руслан Одинцов"),
+                    $(".name9").text("Николай Васильев"),
+                    $(".name10").text("Екатерина Суворова"),
+                    $(".name11").text("Юлия Мухина"),
+                    $(".name12").text("Ангелина Лапина"),
+                    $(".name13").text("Надежда Евдокимова"),
+                    $(".name14").text("Дина Тихонова"),
+                    $(".name15").text("Лилия Игнатова"),
+
+                    $('.avatar1').attr('src', 'img/ru/1.png'),
+                    $('.avatar2').attr('src', 'img/ru/2.png'),
+                    $('.avatar3').attr('src', 'img/ru/3.png'),
+                    $('.avatar4').attr('src', 'img/ru/4.png'),
+                    $('.avatar5').attr('src', 'img/ru/5.png'),
+                    $('.avatar6').attr('src', 'img/ru/6.png'),
+                    $('.avatar7').attr('src', 'img/ru/7.png'),
+                    $('.avatar8').attr('src', 'img/ru/8.png'),
+                    $('.avatar9').attr('src', 'img/ru/9.png'),
+                    $('.avatar10').attr('src', 'img/ru/10.png'),
+                    $('.avatar11').attr('src', 'img/ru/11.png'),
+                    $('.avatar12').attr('src', 'img/ru/12.png'),
+                    $('.avatar13').attr('src', 'img/ru/13.png'),
+                    $('.avatar14').attr('src', 'img/ru/14.png'),
+                    $('.avatar15').attr('src', 'img/ru/15.png'),
+                    $('.doc_img').attr('src', 'img/ru/foto.png'),
+
+                    document.getElementsByTagName("body")[0]),
+                "BY" == sel &&
+                ($(".country_name1").text("Беларуси"),
+
+                    $(".news2Name").text("Зинаида Герасимова"),
+                    $('.news1').attr('src', 'img/ru/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/ru/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Константин Марков"),
+
+                    $(".name01").text("Алексей Дегтярев"),
+                    $(".name02").text("Иван Пантелеев"),
+                    $(".name03").text("Людмила Коваленко"),
+                    $(".name04").text("Анна Яшина"),
+
+                    $(".name1").text("Мария Савичева"),
+                    $(".name2").text("Нина Кузьмина"),
+                    $(".name3").text("Кирилл Чернов"),
+                    $(".name4").text("Евгений Гордеев"),
+                    $(".name5").text("Елена Дмитриева"),
+                    $(".name6").text("Марина Анисимова"),
+                    $(".name7").text("Ирина Матвеева"),
+                    $(".name8").text("Руслан Одинцов"),
+                    $(".name9").text("Николай Васильев"),
+                    $(".name10").text("Екатерина Суворова"),
+                    $(".name11").text("Юлия Мухина"),
+                    $(".name12").text("Ангелина Лапина"),
+                    $(".name13").text("Надежда Евдокимова"),
+                    $(".name14").text("Дина Тихонова"),
+                    $(".name15").text("Лилия Игнатова"),
+
+                    $('.avatar1').attr('src', 'img/ru/1.png'),
+                    $('.avatar2').attr('src', 'img/ru/2.png'),
+                    $('.avatar3').attr('src', 'img/ru/3.png'),
+                    $('.avatar4').attr('src', 'img/ru/4.png'),
+                    $('.avatar5').attr('src', 'img/ru/5.png'),
+                    $('.avatar6').attr('src', 'img/ru/6.png'),
+                    $('.avatar7').attr('src', 'img/ru/7.png'),
+                    $('.avatar8').attr('src', 'img/ru/8.png'),
+                    $('.avatar9').attr('src', 'img/ru/9.png'),
+                    $('.avatar10').attr('src', 'img/ru/10.png'),
+                    $('.avatar11').attr('src', 'img/ru/11.png'),
+                    $('.avatar12').attr('src', 'img/ru/12.png'),
+                    $('.avatar13').attr('src', 'img/ru/13.png'),
+                    $('.avatar14').attr('src', 'img/ru/14.png'),
+                    $('.avatar15').attr('src', 'img/ru/15.png'),
+                    $('.doc_img').attr('src', 'img/ru/foto.png'),
+                    document.getElementsByTagName("body")[0]),
+                "AM" == sel &&
+                ($(".country_name1").text("Армении"),
+
+                    $(".news2Name").text("Анаит Герамян"),
+                    $('.news1').attr('src', 'img/am/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/am/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Баграм Маркарян"),
+
+                    $(".name01").text("Артур Дегтярян"),
+                    $(".name02").text("Вано Пантейлян"),
+                    $(".name03").text("Люси Ковалян"),
+                    $(".name04").text("Аружан Яшимян"),
+
+                    $(".name1").text("Марине Савикян"),
+                    $(".name2").text("Нино Кузоян"),
+                    $(".name3").text("Мигран Варданян"),
+                    $(".name4").text("Авет Гордиян"),
+                    $(".name5").text("Нана Доминян"),
+                    $(".name6").text("Гаяне Анисян"),
+                    $(".name7").text("Сате Игнажан"),
+                    $(".name8").text("Вардан Одимян"),
+                    $(".name9").text("Оганес Ваминян"),
+                    $(".name10").text("Мане Сурунян"),
+                    $(".name11").text("Вартуи Михайлян"),
+                    $(".name12").text("Нарине Лапоян"),
+                    $(".name13").text("Гаяне Евисян"),
+                    $(".name14").text("Овсана Тихонян"),
+                    $(".name15").text("Ирена Мавикян"),
+
+                    $('.avatar1').attr('src', 'img/am/1.png'),
+                    $('.avatar2').attr('src', 'img/am/2.png'),
+                    $('.avatar3').attr('src', 'img/am/3.png'),
+                    $('.avatar4').attr('src', 'img/am/4.png'),
+                    $('.avatar5').attr('src', 'img/am/5.png'),
+                    $('.avatar6').attr('src', 'img/am/6.png'),
+                    $('.avatar7').attr('src', 'img/am/7.png'),
+                    $('.avatar8').attr('src', 'img/am/8.png'),
+                    $('.avatar9').attr('src', 'img/am/9.png'),
+                    $('.avatar10').attr('src', 'img/am/10.png'),
+                    $('.avatar11').attr('src', 'img/am/11.png'),
+                    $('.avatar12').attr('src', 'img/am/12.png'),
+                    $('.avatar13').attr('src', 'img/am/13.png'),
+                    $('.avatar14').attr('src', 'img/am/14.png'),
+                    $('.avatar15').attr('src', 'img/am/15.png'),
+                    $('.doc_img').attr('src', 'img/am/foto.png'),
+                    document.getElementsByTagName("body")[0]),
+                "KZ" == sel &&
+                ($(".country_name1").text("Казахстана"),
+
+                    $(".news2Name").text("Мадина Муминова"),
+                    $('.news1').attr('src', 'img/kz/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/kz/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Нурали Мирасов"),
+
+                    $(".name01").text("Сухроб Ибрагимов"),
+                    $(".name02").text("Карим Махмудов"),
+                    $(".name03").text("Роза Хайдарова"),
+                    $(".name04").text("Мадина Азизова"),
+
+                    $(".name1").text("Динара Расулова"),
+                    $(".name2").text("Карина Абдуллаева"),
+                    $(".name3").text("Сардор Толипов"),
+                    $(".name4").text("Достон Мирасов"),
+                    $(".name5").text("Амалия Юлдушева"),
+                    $(".name6").text("Фатима Садыкова"),
+                    $(".name7").text("Диля Джураева"),
+                    $(".name8").text("Амин Саидов"),
+                    $(".name9").text("Алишер Турсунов"),
+                    $(".name10").text("Замира Саидова"),
+                    $(".name11").text("Аниса Нуралиева"),
+                    $(".name12").text("Зухра Ималова"),
+                    $(".name13").text("Гузаль Нарзуллаева"),
+                    $(".name14").text("Дина Тихонова"),
+                    $(".name15").text("Сабина Игуманова"),
+
+                    $('.avatar1').attr('src', 'img/kz/1.png'),
+                    $('.avatar2').attr('src', 'img/kz/2.png'),
+                    $('.avatar3').attr('src', 'img/kz/3.png'),
+                    $('.avatar4').attr('src', 'img/kz/4.png'),
+                    $('.avatar5').attr('src', 'img/kz/5.png'),
+                    $('.avatar6').attr('src', 'img/kz/6.png'),
+                    $('.avatar7').attr('src', 'img/kz/7.png'),
+                    $('.avatar8').attr('src', 'img/kz/8.png'),
+                    $('.avatar9').attr('src', 'img/kz/9.png'),
+                    $('.avatar10').attr('src', 'img/kz/10.png'),
+                    $('.avatar11').attr('src', 'img/kz/11.png'),
+                    $('.avatar12').attr('src', 'img/kz/12.png'),
+                    $('.avatar13').attr('src', 'img/kz/13.png'),
+                    $('.avatar14').attr('src', 'img/kz/14.png'),
+                    $('.avatar15').attr('src', 'img/kz/15.png'),
+                    $('.doc_img').attr('src', 'img/kz/foto.png'),
+                    document.getElementsByTagName("body")[0]),
+                "KG" == sel &&
+                ($(".country_name1").text("Кыргызстана"),
+
+                    $(".news2Name").text("Мадина Муминова"),
+                    $('.news1').attr('src', 'img/kz/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/kz/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Нурали Мирасов"),
+
+                    $(".name01").text("Сухроб Ибрагимов"),
+                    $(".name02").text("Карим Махмудов"),
+                    $(".name03").text("Роза Хайдарова"),
+                    $(".name04").text("Мадина Азизова"),
+
+                    $(".name1").text("Динара Расулова"),
+                    $(".name2").text("Карина Абдуллаева"),
+                    $(".name3").text("Сардор Толипов"),
+                    $(".name4").text("Достон Мирасов"),
+                    $(".name5").text("Амалия Юлдушева"),
+                    $(".name6").text("Фатима Садыкова"),
+                    $(".name7").text("Диля Джураева"),
+                    $(".name8").text("Амин Саидов"),
+                    $(".name9").text("Алишер Турсунов"),
+                    $(".name10").text("Замира Саидова"),
+                    $(".name11").text("Аниса Нуралиева"),
+                    $(".name12").text("Зухра Ималова"),
+                    $(".name13").text("Гузаль Нарзуллаева"),
+                    $(".name14").text("Дина Тихонова"),
+                    $(".name15").text("Сабина Игуманова"),
+
+                    $('.avatar1').attr('src', 'img/kz/1.png'),
+                    $('.avatar2').attr('src', 'img/kz/2.png'),
+                    $('.avatar3').attr('src', 'img/kz/3.png'),
+                    $('.avatar4').attr('src', 'img/kz/4.png'),
+                    $('.avatar5').attr('src', 'img/kz/5.png'),
+                    $('.avatar6').attr('src', 'img/kz/6.png'),
+                    $('.avatar7').attr('src', 'img/kz/7.png'),
+                    $('.avatar8').attr('src', 'img/kz/8.png'),
+                    $('.avatar9').attr('src', 'img/kz/9.png'),
+                    $('.avatar10').attr('src', 'img/kz/10.png'),
+                    $('.avatar11').attr('src', 'img/kz/11.png'),
+                    $('.avatar12').attr('src', 'img/kz/12.png'),
+                    $('.avatar13').attr('src', 'img/kz/13.png'),
+                    $('.avatar14').attr('src', 'img/kz/14.png'),
+                    $('.avatar15').attr('src', 'img/kz/15.png'),
+                    $('.doc_img').attr('src', 'img/kz/foto.png'),
+                    document.getElementsByTagName("body")[0]),
+                "UZ" == sel &&
+                ($(".country_name1").text("Узбекистана"),
+
+                    $(".news2Name").text("Мадина Муминова"),
+                    $('.news1').attr('src', 'img/kz/sidebar-rudenko.jpg'),
+                    $('.news2').attr('src', 'img/kz/sidebar-bezvershenko.jpg'),
+                    $(".doctorName").text("Нурали Мирасов"),
+
+                    $(".name01").text("Сухроб Ибрагимов"),
+                    $(".name02").text("Карим Махмудов"),
+                    $(".name03").text("Роза Хайдарова"),
+                    $(".name04").text("Мадина Азизова"),
+
+                    $(".name1").text("Динара Расулова"),
+                    $(".name2").text("Карина Абдуллаева"),
+                    $(".name3").text("Сардор Толипов"),
+                    $(".name4").text("Достон Мирасов"),
+                    $(".name5").text("Амалия Юлдушева"),
+                    $(".name6").text("Фатима Садыкова"),
+                    $(".name7").text("Диля Джураева"),
+                    $(".name8").text("Амин Саидов"),
+                    $(".name9").text("Алишер Турсунов"),
+                    $(".name10").text("Замира Саидова"),
+                    $(".name11").text("Аниса Нуралиева"),
+                    $(".name12").text("Зухра Ималова"),
+                    $(".name13").text("Гузаль Нарзуллаева"),
+                    $(".name14").text("Дина Тихонова"),
+                    $(".name15").text("Сабина Игуманова"),
+
+                    $('.avatar1').attr('src', 'img/kz/1.png'),
+                    $('.avatar2').attr('src', 'img/kz/2.png'),
+                    $('.avatar3').attr('src', 'img/kz/3.png'),
+                    $('.avatar4').attr('src', 'img/kz/4.png'),
+                    $('.avatar5').attr('src', 'img/kz/5.png'),
+                    $('.avatar6').attr('src', 'img/kz/6.png'),
+                    $('.avatar7').attr('src', 'img/kz/7.png'),
+                    $('.avatar8').attr('src', 'img/kz/8.png'),
+                    $('.avatar9').attr('src', 'img/kz/9.png'),
+                    $('.avatar10').attr('src', 'img/kz/10.png'),
+                    $('.avatar11').attr('src', 'img/kz/11.png'),
+                    $('.avatar12').attr('src', 'img/kz/12.png'),
+                    $('.avatar13').attr('src', 'img/kz/13.png'),
+                    $('.avatar14').attr('src', 'img/kz/14.png'),
+                    $('.avatar15').attr('src', 'img/kz/15.png'),
+                    $('.doc_img').attr('src', 'img/kz/foto.png'),
+                    document.getElementsByTagName("body")[0]),
+                n = 0)
+        }).change();
+    }
+});
